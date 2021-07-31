@@ -1,0 +1,37 @@
+<Project>
+    <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+    
+    <PropertyGroup>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <Description>Native Libretro core</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Remove="Native\**\*" />
+        <Content Include="Native\win*\*" PackagePath="content\%(RecursiveDir)%(Filename)%(Extension)" />
+        <Content Include="Native\uap*\*" PackagePath="content\%(RecursiveDir)%(Filename)%(Extension)" />
+        <Content Include="Native\osx*\*" PackagePath="content\%(RecursiveDir)lib%(Filename)%(Extension)" />
+        <Content Include="Native\ios*\*" PackagePath="content\%(RecursiveDir)lib%(Filename)%(Extension)" />
+        <Content Include="Native\android*\*" PackagePath="content\%(RecursiveDir)lib%(Filename)%(Extension)" />
+        <Content Include="..\NugetTargets_net.targets" Link="NugetTargets_net.targets" Visible="false" PackagePath="build\net46\$(ProjectName).targets" />
+        <Content Include="..\NugetTargets_uap.targets" Link="NugetTargets_uap.targets" Visible="false" PackagePath="build\uap10.0\$(ProjectName).targets" />
+        <Content Include="..\NugetTargets_iOS.targets" Link="NugetTargets_iOS.targets" Visible="false" PackagePath="build\Xamarin.iOS\$(ProjectName).targets" />
+        <Content Include="..\NugetTargets_macOS.targets" Link="NugetTargets_macOS.targets" Visible="false" PackagePath="build\Xamarin.Mac\$(ProjectName).targets" />
+        <Content Include="..\NugetTargets_android.targets" Link="NugetTargets_android.targets" Visible="false" PackagePath="build\MonoAndroid\$(ProjectName).targets" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="System.IO.UnmanagedMemoryStream" Version="4.3.0" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <ProjectReference Include="..\..\LibRetriX.RetroBindings\LibRetriX.RetroBindings.csproj" />
+        <ProjectReference Include="..\..\LibRetriX\LibRetriX.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <Folder Include="Native\" />
+    </ItemGroup>
+
+    <Import Project="..\LibRetriX.RetroBindings.Static\LibRetriX.RetroBindings.Static.projitems" Label="Shared" />
+</Project>

@@ -1,0 +1,8 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">  
+  <ItemGroup Condition=" $(PlatformTarget) == 'x86' ">
+    <Content Include="$(MSBuildThisFileDirectory)..\..\content\win-x86\*" Link="%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest"/>
+  </ItemGroup>
+  <ItemGroup Condition=" $(PlatformTarget) == 'x64' ">
+    <Content Include="$(MSBuildThisFileDirectory)..\..\content\win-x64\*" Link="%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest"/>
+  </ItemGroup>
+</Project>

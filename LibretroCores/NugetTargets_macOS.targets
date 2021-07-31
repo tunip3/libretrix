@@ -1,0 +1,11 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">  
+  <ItemGroup Condition=" $(XamMacArch) == 'i386' ">
+    <Content Include="$(MSBuildThisFileDirectory)..\..\content\osx-x86\*" Link="%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest"/>
+  </ItemGroup>
+  <ItemGroup Condition=" $(XamMacArch) == 'x86_64' ">
+    <Content Include="$(MSBuildThisFileDirectory)..\..\content\osx-x64\*" Link="%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest"/>
+  </ItemGroup>
+  <ItemGroup Condition=" $(XamMacArch) == '' ">
+    <Content Include="$(MSBuildThisFileDirectory)..\..\content\osx-x64\*" Link="%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest"/>
+  </ItemGroup>
+</Project>

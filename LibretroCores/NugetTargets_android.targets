@@ -1,0 +1,9 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">  
+  <ItemGroup>
+    <AndroidNativeLibrary Include="$(MSBuildThisFileDirectory)..\..\content\android-x86\*" Abi="x86" CopyToOutputDirectory="PreserveNewest"/>
+    <AndroidNativeLibrary Include="$(MSBuildThisFileDirectory)..\..\content\android-x64\*" Abi="x86_64" CopyToOutputDirectory="PreserveNewest"/>
+    <AndroidNativeLibrary Include="$(MSBuildThisFileDirectory)..\..\content\android-arm\*" Abi="armeabi" CopyToOutputDirectory="PreserveNewest"/>
+    <AndroidNativeLibrary Include="$(MSBuildThisFileDirectory)..\..\content\android-armv7a\*" Abi="armeabi-v7a" CopyToOutputDirectory="PreserveNewest"/>
+    <AndroidNativeLibrary Include="$(MSBuildThisFileDirectory)..\..\content\android-armv8a\*" Abi="arm64-v8a" CopyToOutputDirectory="PreserveNewest"/>
+</ItemGroup>
+</Project>
